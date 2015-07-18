@@ -80,6 +80,13 @@ var Restricted = React.createClass({
             }
         },
         creditcard: '#### #### #### ####',
+        parsedNumber(value) {
+          value = parseFloat(value, 10)
+          return {
+            value,
+            isValid: isNaN(value),
+          };
+        },
         shortDate(value, isBackspace){
             var parts = dateRe.exec(value) || [];
             if (parts.shift()) {
