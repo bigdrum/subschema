@@ -24,13 +24,23 @@ var Number = React.createClass({
         this.props.onChange(e);
         this.setValue(value);
         var parsed = parseFloat(value, 10);
-        if (!isNaN(parsed)) {
+        if (parsed.toString() == value) {
             if (this.props.valueManager.update(this.props.path, parsed) !== false) {
                 this.props.onValueChange(value);
             }
         }
     },
     handleValidate(e){
+        var value = e.target.value;
+        var parsed = parseFloat(value, 10);
+        if (isNaN(parsed)) {
+          parsed = 0
+        }
+        this.setValue(parsed)
+        if (this.props.valueManager.update(this.props.path, parsed) !== false) {
+            this.props.onValueChange(value);
+        }
+
         this.props.onBlur.call(this, e);
         this.props.onValidate(this.state.value, this, e);
     },
