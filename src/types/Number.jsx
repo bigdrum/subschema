@@ -22,32 +22,26 @@ var Number = React.createClass({
     handleChange(e) {
         var value = e.target.value;
         this.props.onChange(e);
-        //Not a valid number but valid to become a number
-        if (/^(-\.|-|)[0-9]*\.?$/.test(value)) {
-            this.setValue(value);
-            //actual numbers.
-        } else if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/
-                .test(value)) {
-
-            if (this.props.valueManager.update(this.props.path, parseFloat(value, 10)) !== false) {
+        this.setValue(value);
+        var parsed = parseFloat(value, 10);
+        if (!isNaN(parsed)) {
+            if (this.props.valueManager.update(this.props.path, parsed) !== false) {
                 this.props.onValueChange(value);
             }
         }
     },
     handleValidate(e){
         this.props.onBlur.call(this, e);
-
         this.props.onValidate(this.state.value, this, e);
-
     },
     render() {
         var {onChange, onValueChange, onBlur, className, field, value, dataType, value, fieldAttrs, type, ...props} = this.props
-        return <input ref="input" onBlur={this.handleValidate} onChange={this.handleChange} id={this.props.name}
+        return <input ref="input" onBlur={this.handleValidate} id={this.props.name}
                       className={css.forField(this)}
-
                       value={this.state.value}
-            {...props} {...fieldAttrs}
+                      {...props} {...fieldAttrs}
                       type={dataType || 'text'}
+                      onChange={this.handleChange}
             />
     }
 });
