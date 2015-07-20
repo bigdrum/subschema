@@ -19,28 +19,34 @@ var Number = React.createClass({
             value
         });
     },
+    _setValueToVM(value){
+      if (this.props.valueManager.update(this.props.path, value) !== false) {
+          this.props.onValueChange(value);
+      }
+    },
     handleChange(e) {
         var value = e.target.value;
+        if (!value) {
+          this.setValue(null)
+          this._setValueToVM(null);
+          return
+        }
         this.props.onChange(e);
         this.setValue(value);
         var parsed = parseFloat(value, 10);
         if (parsed.toString() == value) {
-            if (this.props.valueManager.update(this.props.path, parsed) !== false) {
-                this.props.onValueChange(value);
-            }
+            this._setValueToVM(parsed)
         }
     },
     handleValidate(e){
         var value = e.target.value;
         var parsed = parseFloat(value, 10);
         if (isNaN(parsed)) {
-          parsed = 0
-        }
-        this.setValue(parsed)
-        if (this.props.valueManager.update(this.props.path, parsed) !== false) {
-            this.props.onValueChange(value);
+          parsed = null
         }
 
+        this.setValue(parsed)
+        this._setValueToVM(parsed)
         this.props.onBlur.call(this, e);
         this.props.onValidate(this.state.value, this, e);
     },
