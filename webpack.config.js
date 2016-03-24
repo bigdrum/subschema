@@ -26,8 +26,8 @@ module.exports = {
         library: 'Subschema'
     },
     externals: [{
-     'react/addons': 'react',
-      react: true
+     'react/addons': 'React',
+      react: 'React'
     }],
     stats: {
         colors: true,
