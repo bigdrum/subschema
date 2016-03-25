@@ -55,6 +55,7 @@ var NestedMixin = {
                 return [vs[0], vs.slice(1).join('.')]
             }
             return vs;
+            // return v.split('.', 2);
         }).map((v) => {
             var f = v[0];
             if (v.length > 1) {
