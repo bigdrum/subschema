@@ -27,7 +27,7 @@ module.exports = {
     },
     externals: [{
      'react/addons': 'react',
-      react: 'react'
+      react: true
     }],
     stats: {
         colors: true,
