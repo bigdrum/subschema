@@ -1,15 +1,15 @@
 "use strict";
 var api = {
-    template: require('lodash/string/template'),
-    extend: require('lodash/object/extend'),
-    isFunction: require('lodash/lang/isFunction'),
-    isString: require('lodash/lang/isString'),
-    isRegExp: require('lodash/lang/isRegExp'),
-    isDate: require('lodash/lang/isDate'),
-    isBoolean: require('lodash/lang/isBoolean'),
-    isArray: require('lodash/lang/isArray'),
-    isNumber: require('lodash/lang/isNumber'),
-    find: require('lodash/collection/find'),
+    template: require('lodash/template'),
+    extend: require('lodash/extend'),
+    isFunction: require('lodash/isFunction'),
+    isString: require('lodash/isString'),
+    isRegExp: require('lodash/isRegExp'),
+    isDate: require('lodash/isDate'),
+    isBoolean: require('lodash/isBoolean'),
+    isArray: require('lodash/isArray'),
+    isNumber: require('lodash/isNumber'),
+    find: require('lodash/find'),
     noop: function () {
     },
     unique: function (array) {

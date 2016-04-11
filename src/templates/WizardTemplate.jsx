@@ -7,7 +7,7 @@ var css = require('../styles/wizard.less');
 var ButtonsTemplate = require('./ButtonsTemplate.jsx');
 //var TimeoutTransitionGroup = require('../transition/TimeoutTransitionGroup.jsx');
 var EventCSSTransitionGroup = require('../transition/EventCSSTransitionGroup.jsx')
-var CSSCore = require("react/lib/CSSCore");
+var CSSCore = require("fbjs/lib/CSSCore");
 var LoaderMixin = require('../LoaderMixin');
 
 function donner(done) {
