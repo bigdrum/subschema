@@ -65,15 +65,19 @@ var ListInput = React.createClass({
      return value.map(this.extractValue);
      },*/
     getTemplateItem(){
+        var fields = this.props.fields ? this.props.fields.map((f) => 'value.' + f) : ['value'];
         return {
             type: 'Object',
             name: this.props.name,
             title: this.props.title,
-            subSchema: this.props.itemType.subSchema,
-            fields: this.props.fields,
+            subSchema: {
+                value: this.props.itemType
+            },
+            fields: fields,
         };
     },
     render() {
+        console.log(this.props);
         var {name, itemTemplate, itemType, errors, path,field, value} = this.props, item = (!itemType || tu.isString(itemType)) ? {
             type: itemType || 'Text',
             name: name
