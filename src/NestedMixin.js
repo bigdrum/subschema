@@ -72,6 +72,9 @@ var NestedMixin = {
                     type: ref
                 }
             } else {
+                if (!ref) {
+                    console.warn('Invalid field name', f)
+                }
                 if (!ref.type) {
                     ref.type = 'Text';
                 }
