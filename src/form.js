@@ -37,7 +37,7 @@ var Form = React.createClass({
         var sb = submitButton || this.schema.submitButton;
         var Template = this.template(template);
         return <Template ref="form" onValidate={this.handleValidate} onSubmit={this.handleSubmit} schema={this.schema}
-                         className={this.props.className}
+                         className={"form-horizontal " + this.props.className}
             {...props}
                          loader={this.props.loader}
                          valueManager={this.props.valueManager}

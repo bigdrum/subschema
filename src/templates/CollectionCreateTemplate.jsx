@@ -10,13 +10,14 @@ var CollectionCreateTemplate = React.createClass({
                     {this.props.title}
                 </h3>
             </div>
-            <div className="panel-body">
+            <div className="panel-body" style={{paddingLeft: 30, paddingRight: 30}}>
                 <div className="form-group">
                     <Editor ref="itemEditor" field={this.props.field} value={this.props.value}
                             valueManager={this.valueManager}
                             name={this.props.name}
                             pid={this.props.editPid}
-                            form={null}/>
+                            form={null}
+                            hideTitle={true} />
                 </div>
                 <div className="form-group">
                     <button className="btn btn-default pull-left" ref="cancelBtn" type="reset" onClick={this.props.onCancel}>Cancel

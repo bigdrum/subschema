@@ -56,7 +56,7 @@ var ListItemTemplate = React.createClass({
         var {pos, field, value, errors, path, onValidate, last, onValueChange} = this.props;
         var {type, name, canReorder, canDelete} = field;
         var error = errors && errors[0] && errors[0].message;
-        return <li className={'list-group-item '+(error ? 'has-error' : '')}>
+        return <li className={'list-group-item '+(error ? 'has-error' : '')} style={{paddingLeft:30, paddingRight:30}}>
             {this.renderField()}
             { error ? <p ref="error" className="help-block">{error}</p> : null }
             <Buttons buttons={this.buttons(pos, last, canReorder, canDelete)} ref="buttons"

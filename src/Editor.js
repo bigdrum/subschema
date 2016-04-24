@@ -145,6 +145,9 @@ var Editor = React.createClass({
 
 
     title: function () {
+        if (this.props.hideTitle) {
+            return null;
+        }
         var field = this.props.field || {};
         if (field.title === false) {
             return null;

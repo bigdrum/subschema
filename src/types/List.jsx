@@ -66,12 +66,14 @@ var ListInput = React.createClass({
      },*/
     getTemplateItem(){
         var fields = this.props.fields ? this.props.fields.map((f) => 'value.' + f) : ['value'];
+        var itemType = tu.clone(this.props.itemType)
+        itemType.title = false
         return {
             type: 'Object',
             name: this.props.name,
             title: this.props.title,
             subSchema: {
-                value: this.props.itemType
+                value: itemType,
             },
             fields: fields,
         };

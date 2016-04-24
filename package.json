@@ -12,6 +12,7 @@
     "docs": "node bin/docs.js",
     "prepublish": "webpack --config webpack.config.js -p",
     "postinstall": "node bin/postinstall.js",
+    "watch": "webpack --watch",
     "build-demo": "webpack   --optimize-minimize  --optimize-occurence-order  --optimize-dedupe  --config ./demo.webpack.config.js"
   },
   "keywords": [
